@@ -1,0 +1,9 @@
+{% if index_list %}
+    <ul>
+    {% for index in index_list %}
+        <li><a href="/bank/{{ index.id }}/">{{ index }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>None index id available.</p>
+{% endif %}

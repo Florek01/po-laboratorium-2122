@@ -1,0 +1,12 @@
+{% if address_list %}
+    <ul>
+    {% for address in address_list %}
+        <p>Address</p>
+         <li>Street: {{ address.street}}</li>
+         <li>City: {{ address.city}}<li>
+         <li>Country: {{ address.country}}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No addresses are available.</p>
+{% endif %}

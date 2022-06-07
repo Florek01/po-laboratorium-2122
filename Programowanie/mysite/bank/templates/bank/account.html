@@ -1,0 +1,13 @@
+{% if account_list %}
+    <ul>
+    {% for account in account_list %}
+    <p>Account</p>
+        <li>Account number: {{ account.account_number}}</li>
+        <li>Account type: {{ account.account_type}}</li>
+        <li>Balance: {{ account.balance}}</li>
+        <li>Card: {{ account.card}}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No accounts are available.</p>
+{% endif %}

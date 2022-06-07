@@ -1,6 +1,6 @@
 from django.db import models
 
-from .utils import create_new_ref_number
+from .utils import create_new_account_number, create_new_card_number
 
 
 class CardType(models.TextChoices):
@@ -25,12 +25,12 @@ class Card(models.Model):
                                    blank=True,
                                    editable=False,
                                    unique=True,
-                                   default=create_new_ref_number
+                                   default=create_new_card_number
                                    )
     card_type = models.CharField(choices=CardType.choices, max_length=50)
 
     def __str__(self):
-        return '{} {}'.format(self.card_number, self.card_type)
+        return '{} {} {} {}'.format('Card number:', self.card_number, ', Card type:', self.card_type)
 
 
 class Account(models.Model):
@@ -38,20 +38,23 @@ class Account(models.Model):
                                       blank=True,
                                       editable=False,
                                       unique=True,
-                                      default=create_new_ref_number
+                                      default=create_new_account_number
                                       )
     account_type = models.CharField(choices=AccountType.choices, max_length=50)
     balance = models.CharField(max_length=200)
     card = models.ForeignKey(Card, on_delete=models.CASCADE)
 
     def __str__(self):
-        return '{} {} {}'.format(self.account_number, self.account_type, self.balance)
+        return '{} {} {} {} {} {}'.format('Account number:', self.account_number,', Account type:', self.account_type,', Balance:', self.balance)
 
 
 class Address(models.Model):
     street = models.CharField(max_length=50)
     city = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
+
+    def __str__(self):
+        return '{} {} {} {} {} {}'.format('Street:', self.street, ', City:', self.city, ', Country:', self.country)
 
 
 class Client(models.Model):

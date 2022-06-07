@@ -1,0 +1,14 @@
+{% if client_list %}
+    <ul>
+    {% for client in client_list %}
+        <p>Client</p>
+        <li>First name: {{ client.first_name }}</li>
+        <li>Last name: {{ client.last_name }}</li>
+        <li>PESEL: {{ client.pesel }}</li>
+        <li>Address: {{ client.address }}</li>
+        <li>Accounts: {{ client.accounts }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No clients are available.</p>
+{% endif %}

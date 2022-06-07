@@ -1,0 +1,11 @@
+{% if card_list %}
+    <ul>
+    {% for card in card_list %}
+         <p>Card</p>
+         <li></li>Card number: {{ card.card_number}}</li>
+         <li></li>Card type: {{ card.card_type}}</li> 
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No cards are available.</p>
+{% endif %}
