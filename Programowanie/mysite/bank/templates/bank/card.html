@@ -1,11 +1,12 @@
+<center>Fajny Bank s.a. </center>
 {% if card_list %}
-    <ul>
+    <table border>
     {% for card in card_list %}
-         <p>Card</p>
-         <li></li>Card number: {{ card.card_number}}</li>
-         <li></li>Card type: {{ card.card_type}}</li> 
+        <tr><td>Card</td></tr>
+        <tr><td>Card number: </td><td> {{ card.card_number}}</td></tr>
+        <tr><td>Card type:</td><td> {{ card.card_type}}</td> </tr>
     {% endfor %}
-    </ul>
+    </table>
 {% else %}
     <p>No cards are available.</p>
 {% endif %}

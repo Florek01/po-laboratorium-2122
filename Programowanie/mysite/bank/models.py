@@ -65,4 +65,4 @@ class Client(models.Model):
     accounts = models.ManyToManyField(Account)
 
     def __str__(self):
-        return '{} {} {}'.format(self.first_name, self.last_name, self.pesel)
+        return '{} {} {} {}'.format(self.first_name, self.last_name, self.pesel, self.accounts)

@@ -1,12 +1,13 @@
+<center>Fajny Bank s.a. </center>
 {% if address_list %}
-    <ul>
+    <table border>
     {% for address in address_list %}
-        <p>Address</p>
-         <li>Street: {{ address.street}}</li>
-         <li>City: {{ address.city}}<li>
-         <li>Country: {{ address.country}}</li>
+        <tr><td>Address</td></tr>
+        <tr><td>Street: </td><td>{{ address.street}}</td></tr>
+        <tr><td>City: </td><td>{{ address.city}}</td></tr>
+        <tr><td>Country: </td><td>{{ address.country}}</td></tr>
     {% endfor %}
-    </ul>
+     </table>
 {% else %}
     <p>No addresses are available.</p>
 {% endif %}

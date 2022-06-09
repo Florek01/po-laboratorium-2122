@@ -3,13 +3,23 @@ from django.http import HttpResponse
 from .models import Account, Client, Card, Address
 from django.template import loader
 from django.shortcuts import render
+from .forms import FormClient, FormAddress, FormAccount
 
 
 def index(request):
-    index_list = 'Account', 'Client', 'Card'
+    index_list = 'Account', 'Client', 'Form'
     template = loader.get_template('bank/index.html')
     context = {
         'index_list': index_list,
+    }
+    return HttpResponse(template.render(context, request))
+
+
+def form(request):
+    form_list = 'FormClient', 'FormAddress', 'FormAccount'
+    template = loader.get_template('bank/form.html')
+    context = {
+        'form_list': form_list,
     }
     return HttpResponse(template.render(context, request))
 
@@ -49,3 +59,37 @@ def address(request):
     return HttpResponse(template.render(context, request))
 
 
+def formClient(request):
+    form = FormClient(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+
+    context = {
+        'form': form
+    }
+    return render(request, 'bank/formclient.html', context)
+
+
+def formAddress(request):
+    form = FormAddress(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+
+    context = {
+        'form': form
+    }
+    return render(request, 'bank/formaddress.html', context)
+
+
+def formAccount(request):
+    form = FormAccount(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+
+    context = {
+        'form': form
+    }
+    return render(request, 'bank/formaccount.html', context)

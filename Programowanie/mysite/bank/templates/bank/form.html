@@ -1,0 +1,9 @@
+<center>Fajny Bank s.a. </center>
+{% if form_list %}
+    <ul>
+    <P>Join us!</P>
+    {% for form in form_list %}
+        <li><a href="/bank/{{ form | lower }}">{{ form }}</a></li>
+    {% endfor %}
+    </ul>
+{% endif %}

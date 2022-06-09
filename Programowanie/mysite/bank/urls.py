@@ -7,4 +7,8 @@ urlpatterns = [
     path('address/', views.address, name='address'),
     path('client/', views.client, name='client'),
     path('card/', views.card, name='card'),
+    path('form/', views.form, name='form'),
+    path('formclient', views.formClient),
+    path('formaddress', views.formAddress),
+    path('formaccount', views.formAccount),
 ]

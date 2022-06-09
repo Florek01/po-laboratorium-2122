@@ -1,9 +1,9 @@
+<center>Fajny Bank s.a. </center>
 {% if index_list %}
     <ul>
+    <P>Informations:</P>
     {% for index in index_list %}
-        <li><a href="/bank/{{ index.id }}/">{{ index }}</a></li>
+        <li><a href="/bank/{{ index | lower }}">{{ index }}</a></li>
     {% endfor %}
     </ul>
-{% else %}
-    <p>None index id available.</p>
 {% endif %}

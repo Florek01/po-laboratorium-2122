@@ -1,14 +1,15 @@
+<center>Fajny Bank s.a. </center>
 {% if client_list %}
-    <ul>
+    <table border>
     {% for client in client_list %}
-        <p>Client</p>
-        <li>First name: {{ client.first_name }}</li>
-        <li>Last name: {{ client.last_name }}</li>
-        <li>PESEL: {{ client.pesel }}</li>
-        <li>Address: {{ client.address }}</li>
-        <li>Accounts: {{ client.accounts }}</li>
+        <tr><td>Client</td></tr>
+        <tr><td>First name:</td><td>{{ client.first_name }}</td></tr>
+        <tr><td>Last name:</td><td>{{ client.last_name }}</td></tr>
+        <tr><td>PESEL:</td><td>{{ client.pesel }}</td></tr>
+        <tr><td>Address:</td><td>{{ client.address }}</td></tr>
+        <tr><td>Accounts:</td><td>{{ client.accounts }}</td></tr>
     {% endfor %}
-    </ul>
+    </table>
 {% else %}
     <p>No clients are available.</p>
 {% endif %}
